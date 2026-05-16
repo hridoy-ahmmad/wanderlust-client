@@ -22,7 +22,7 @@ const Navbar = () => {
         </li>
 
         <li>
-          <Link href={"/add-destination"}>Add Destination</Link>
+          <Link href={"/destinationForm"}>Add Destination</Link>
         </li>
       </ul>
 
