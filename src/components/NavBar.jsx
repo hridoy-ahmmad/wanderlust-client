@@ -8,65 +8,48 @@ const Navbar = () => {
 
 
   return (
-  <div className="bg-white py-3">
+    <div className="bg-white py-3">
       <nav className="flex items-center justify-between max-w-7xl mx-auto">
-      <ul className="flex gap-3">
-        <li>
-          <Link href={"/"}>Home</Link>
-        </li>
-        <li>
-          <Link href={"/destinations"}>Destinations</Link>
-        </li>
-        <li>
-          <Link href={"/my-bookings"}>My Bookings</Link>
-        </li>
+        <ul className="flex gap-3">
+          <li>
+            <Link href={"/"}>Home</Link>
+          </li>
+          <li>
+            <Link href={"/destinations"}>Destinations</Link>
+          </li>
+          <li>
+            <Link href={"/my-bookings"}>My Bookings</Link>
+          </li>
 
-        <li>
-          <Link href={"/destinationForm"}>Add Destination</Link>
-        </li>
-      </ul>
+          <li>
+            <Link href={"/destinationForm"}>Add Destination</Link>
+          </li>
+        </ul>
 
-      <div>
-        <Image
-          src={"/assets/Wanderlast.png"}
-          height={150}
-          width={150}
-          alt="logo"
-        />
-      </div>
+        <div>
+          <Image
+            src={"/assets/Wanderlast.png"}
+            height={150}
+            width={150}
+            alt="logo"
+          />
+        </div>
 
-      <ul className="flex items-center gap-3">
-        <li>
-          <Link href={"/profile"}>Profile</Link>
-        </li>
+        <ul className="flex items-center gap-3">
+          <li>
+            <Link href={"/profile"}>Profile</Link>
+          </li>
+          <li>
+            <Link href={'/signIn'}>Sign In</Link>
+          </li>
+          <li>
+            <Link href={'/signUp'}>Sign Up</Link>
+          </li>
 
-        {/* {user ? (
-          <>
-            <li>
-              <Avatar>
-                <Avatar.Image referrerPolicy="no-referrer" alt="John Doe" src={user?.image} />
-                <Avatar.Fallback>{nsme}</Avatar.Fallback>
-              </Avatar>
-            </li>
-            <li>
-              <Button size="sm" onClick={handleSignOut} variant="danger" className={"rounded-none"}>
-                Logout
-              </Button>
-            </li>
-          </>
-        ) : (
-          <>
-            <li>
-              <Link href={"/login"}>Login</Link>
-            </li>
-            <li>
-              <Link href={"/signup"}>Sign Up</Link>
-            </li>
-          </>
-        )} */}
-      </ul>
-    </nav>
-  </div>
+
+        </ul>
+      </nav>
+    </div>
   );
 };
 
