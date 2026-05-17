@@ -2,25 +2,23 @@
 import { authClient } from "@/lib/auth-client";
 import { Check } from "@gravity-ui/icons";
 import { Button, Card, Description, FieldError, Form, Input, Label, Separator, TextField } from "@heroui/react";
-import { google } from "better-auth";
 import { redirect } from "next/navigation";
 import { FcGoogle } from "react-icons/fc";
-const SignUp = () => {
+const SignIn = () => {
     const onSubmit = async (e) => {
         e.preventDefault()
         const formData = new FormData(e.currentTarget)
         const userData = Object.fromEntries(formData.entries())
-        const { data, error } = await authClient.signUp.email({
+        const { data, error } = await authClient.signIn.email({
             name: userData.name,
             email: userData.email,
             password: userData.password,
-            image: userData.image
         })
         if (data) {
             redirect('/')
         }
     }
-    const handleGoogle = async () => {
+      const handleGoogle = async () => {
         await authClient.signIn.social({
             provider: 'google'
         })
@@ -29,14 +27,7 @@ const SignUp = () => {
         <div className="flex max-w-4xl mx-auto justify-center my-8">
             <Card>
                 <Form className="flex w-full flex-col gap-4   " onSubmit={onSubmit}>
-                    <TextField
-                        isRequired
-                        name='name'
-                        type='text'
-                    >
-                        <Label>Name:</Label>
-                        <Input placeholder='Write your full name'></Input>
-                    </TextField>
+
                     <TextField
                         isRequired
                         name="email"
@@ -51,14 +42,6 @@ const SignUp = () => {
                         <Label>Email</Label>
                         <Input placeholder="john@example.com" />
                         <FieldError />
-                    </TextField>
-                    <TextField
-                        isRequired
-                        name='image'
-                        type='url'
-                    >
-                        <Label>Image Url:</Label>
-                        <Input placeholder='paste your image url'></Input>
                     </TextField>
                     <TextField
                         isRequired
@@ -83,31 +66,30 @@ const SignUp = () => {
                         <Description>Must be at least 8 characters with 1 uppercase and 1 number</Description>
                         <FieldError />
                     </TextField>
-
-                    <Button type="submit" className={'w-full rounded-none'}>
-                        <Check />
-                        Submit
-                    </Button>
-                    <div>
-                        <div className="flex items-center gap-3">
-                            <Separator className="flex-1" />
-                            <span className="whitespace-nowrap text-sm text-gray-500">
-                                or signin with
-                            </span>
-                            <Separator className="flex-1" />
-                        </div>
+                    <div >
+                        <Button type="submit" className={'w-full rounded-none'}>
+                            <Check />
+                            Submit
+                        </Button>
                         <div>
-                            <Button
-                                onClick={handleGoogle}
-                                className={'w-full my-2 rounded-none bg-white border border-gray-400 text-black'}> <FcGoogle /> Google </Button>
+                            <div className="flex items-center gap-3 my-2">
+                                <Separator className="flex-1" />
+                                <span className="whitespace-nowrap text-sm text-gray-500">
+                                    or signin with
+                                </span>
+                                <Separator className="flex-1" />
+                            </div>
+                            <div>
+                                <Button
+                                    onClick={handleGoogle}
+                                    className={'w-full my-2 rounded-none bg-white border border-gray-400 text-black'}> <FcGoogle /> Google </Button>
+                            </div>
                         </div>
                     </div>
-
-
                 </Form>
             </Card>
         </div>
     );
 };
 
-export default SignUp;
+export default SignIn;
