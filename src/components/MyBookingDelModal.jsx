@@ -17,21 +17,18 @@ export function MyBookingDelModal({ item }) {
         if (data.deletedCount > 0) {
             window.location.reload()
         }
-
-
-
     }
     return (
         <AlertDialog>
             <Button
                 variant='warning'
                 className="bg-red-100 rounded-none">
-                <FiTrash2 className="w-[18px] h-[18px]" />
+                <FiTrash2 className="w-4.5 h-4.5" />
                 <span>Cancel</span>
             </Button>
             <AlertDialog.Backdrop>
                 <AlertDialog.Container>
-                    <AlertDialog.Dialog className="sm:max-w-[400px]">
+                    <AlertDialog.Dialog className="sm:max-w-100">
                         <AlertDialog.CloseTrigger />
                         <AlertDialog.Header>
                             <AlertDialog.Icon status="danger" />
