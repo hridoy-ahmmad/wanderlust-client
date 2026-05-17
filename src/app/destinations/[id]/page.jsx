@@ -1,3 +1,4 @@
+import { DeleteDestination } from '@/components/DeleteDestination';
 import { EditModal } from '@/components/EditModal';
 import Image from 'next/image';
 import React from 'react';
@@ -11,13 +12,13 @@ const DestinationDetails = async ({ params }) => {
     const data = await res.json()
     console.log(data);
     const { imageUrl, price, destinationName, duration, country, description } =
-    data;
+        data;
 
     return (
         <div className="max-w-7xl mx-auto">
             <div className="flex items-center gap-3 justify-end mt-5 mb-3">
-                <EditModal data={data}/>
-                
+                <EditModal data={data} />
+                <DeleteDestination  data={data} />
             </div>
             <Image
                 className="w-full h-100 object-cover"
